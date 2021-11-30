@@ -1,8 +1,9 @@
-import * as controllerIndex from '../controllers/controllerIndex'
+import * as controllerIndex from '../controllers/controllerIndex.js'
 
 
-const routesCarts = (app) => {
-    app.get('/instagram',controller.controllerIndex)
-    
-export default routesIndex
-}
+const routesIndex = (app) => {
+    app.get('/instagram',controllerIndex.viewpubli)
+    app.post('/instagram',controllerIndex.create)
+}  
+
+export default routesIndex 

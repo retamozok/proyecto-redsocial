@@ -1,9 +1,22 @@
-import * as controllerPublicacion from '../controllers/controllerPublicacion.js'
-
-
-const routesCarts = (app) => {
-    app.get('/instagram',controllerCarts.viewcart)
-    app.post('/instagram',controllerCarts.add)
-    app.delete('/instagram',controllerCarts.del)
-}
-export default routesCarts
+<div class="row justify-content-around mt-3 mb-3">
+   {{#each publi}}
+    <div class="col-5 col-sm-3 select-producto m-2 ms-0">
+      
+      <img src="./img/products/{{url}}" class="col-12 m-1 imagen-producto" alt="...">
+      <h5 class="titulo-producto">{{nombre}}</h5>
+      <h6>${{precio}},00</h6>
+      <p class="descripcion-produ">{{descripcion}}</p>
+        
+        <form action="/carrito" method="post">
+          <input type="hidden" name="id" value={{id}}>
+          <input type="hidden" name="nombre" value="{{nombre}}">
+          <input type="hidden" name="precio" value={{precio}}>
+          <input type="hidden" name="url" value="{{url}}">
+          <input type="hidden" name="descripcion" value="{{descripcion}}">
+          <input type="number" name="cantidad" min="1" max="{{stock}}" value="1">
+            <button class="m-3" type="submit">Agregar al carrito</button>
+        </form>
+      
+      </div>
+    {{/each}}
+  </div>
