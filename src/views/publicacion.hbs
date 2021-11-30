@@ -1,0 +1,9 @@
+import * as controllerPublicacion from '../controllers/controllerPublicacion.js'
+
+
+const routesCarts = (app) => {
+    app.get('/instagram',controllerCarts.viewcart)
+    app.post('/instagram',controllerCarts.add)
+    app.delete('/instagram',controllerCarts.del)
+}
+export default routesCarts
